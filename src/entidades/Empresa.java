@@ -1,0 +1,25 @@
+package entidades;
+
+import lombok.*;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+public class Empresa {
+    @EqualsAndHashCode.Include
+    private UUID id = UUID.randomUUID();
+
+    private String nombre;
+    private String razonSocial;
+    private Integer cuit;
+    private String logo;
+
+    @Builder.Default
+    private Set<Sucursal> sucursales = new HashSet<>();
+}
